@@ -30,17 +30,14 @@ class Talk:
             print("Jarvis...")
             self.reconizer.adjust_for_ambient_noise(source,duration = 0.2)
             audio = self.reconizer.listen(source)
-
         try:
             print("Rozpoznaje...")
-            query = self.reconizer.recognize_google(audio,language='pl-PL')
-            print(f"{query}")
-            return query.lower()
-
+            zapytanie = self.reconizer.recognize_google(audio,language='pl-PL')
+            print(f"{zapytanie}")
+            return zapytanie.lower()
         except sr.UnknownValueError:
             print("Nie zrozumialem dzwieku")
             return ""
-
         except sr.RequestError:
             print("bład polaczenia z usluga rozpoznawania mowy")
             return ""
