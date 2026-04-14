@@ -18,6 +18,8 @@ class Main:
         komenda_dm = self.engine.listen()
         if "ile" in komenda_dm or "plików" in komenda_dm:
             self.dm.ile_plikow()
+        elif "stworz" in komenda_dm:
+            self.dm.stworz_folder("testowy")
 
     def Start(self):
         print(f"\n Menu Jarvis ver{self.version}\n")
