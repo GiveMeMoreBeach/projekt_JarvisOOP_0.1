@@ -21,7 +21,7 @@ class Main:
         elif "stworz" in komenda_dm:
             self.dm.stworz_folder("testowy")
 
-    def Start(self):
+    def start(self):
         print(f"\n Menu Jarvis ver{self.version}\n")
         self.engine.talk(f"Dzien dobry {self.user} w czym moge pomoc?")
         while self.isWorking:
@@ -35,4 +35,4 @@ class Main:
 
 if __name__ == "__main__":
     app = Main()
-    app.Start()
+    app.start()
