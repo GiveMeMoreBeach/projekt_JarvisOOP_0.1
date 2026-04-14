@@ -1,12 +1,10 @@
 import os
 from send2trash import send2trash
-from Speech_Engine import Talk
 
 class DesktopManager(object):
-    def __init__(self):
+    def __init__(self,main_talk):
         self.pulpit = os.path.join(os.path.expanduser("~"),"Desktop")
-        self.sciezka_pliki = os.path.join(os.path.expanduser("~"),"Pliki")
-        self.talk = Talk()
+        self.talk = main_talk
 
     def lista_plikow(self):
         return os.listdir(self.pulpit)

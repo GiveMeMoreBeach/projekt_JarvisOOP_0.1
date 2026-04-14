@@ -9,7 +9,7 @@ class Talk:
 
 
         voices = self.engine.getProperty('voices')
-        self.engine.setProperty('voice', voices[0].id)
+        self.engine.setProperty('voice', voices[1].id)
         self.engine.setProperty('rate', 170)
         self.engine.setProperty('volume', 1.0)
 
@@ -19,6 +19,8 @@ class Talk:
     def talk(self,tekst):
         tekst1 = tekst.replace(".", " ")
         print(f"Jarvis: {tekst1}")
+        if self.engine.proxy_is_busy():
+            self.engine.stop()
         self.engine.say(tekst1)
         self.engine.runAndWait()
 
