@@ -1,26 +1,28 @@
 import pyttsx3
 import speech_recognition as sr
+import time
 
 
 class Talk:
     def __init__(self):
-        self.engine = pyttsx3.init()
         self.reconizer = sr.Recognizer()
-
-
-        voices = self.engine.getProperty('voices')
-        self.engine.setProperty('voice', voices[0].id)
-        self.engine.setProperty('rate', 170)
-        self.engine.setProperty('volume', 1.0)
-
         self.reconizer.pause_threshold = 0.8
 
+    def _get_engine(self):
+        sapi = pyttsx3.init()
+        voices = sapi.getProperty('voices')
+        sapi.setProperty('voice', voices[0].id)
+        sapi.setProperty('rate', 170)
+        sapi.setProperty('volume', 1.0)
+        return sapi
 
     def talk(self,tekst):
         tekst1 = tekst.replace(".", " ")
         print(f"Jarvis: {tekst1}")
-        self.engine.say(tekst1)
-        self.engine.runAndWait()
+        sapi = self._get_engine()
+        sapi.say(tekst1)
+        sapi.runAndWait()
+        time.sleep(0.5)
 
 
 

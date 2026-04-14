@@ -10,11 +10,11 @@ class Main:
         self.version = 1.0
 
     def zakoncz(self):
-        self.engine.talk("Do widzenia, sir")
+        self.engine.talk("Do widzenia, panie")
         self.isWorking = False
 
     def desktop_manager_action(self):
-        self.engine.talk("Odpalam menadzera pulpitu powiedz co chcemy tu zrobić")
+        self.engine.talk("Odpalam menadzera pulpitu. Powiedz co chcemy tu zrobić")
         komenda_dm = self.engine.listen()
         if "ile" in komenda_dm or "plików" in komenda_dm:
             self.dm.ile_plikow()
